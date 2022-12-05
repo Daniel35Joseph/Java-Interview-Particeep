@@ -1,6 +1,9 @@
 package collection;
 
+import java.lang.Math;
+import java.io.*;
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * You should complete the function in this class
@@ -14,7 +17,12 @@ class CollectionTest {
    * operation : x -> ((x * 2) + 3) ^ 5
    */
   public static List<Double> compute1(List<Integer> input) {
-    return null;
+    List<Double> output = new ArrayList<>();
+    for(int i=0 ; i<input.size() ; i++){
+      double x = input.get(i);
+      output.add(Math.pow(((x * 2) + 3),5));
+    }
+    return output;
   }
 
   /**
