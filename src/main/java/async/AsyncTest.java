@@ -23,7 +23,14 @@ class AsyncTest {
   );
 
   public static CompletableFuture<Option<Ceo>> getCeoById(String ceo_id) {
-    return null;
+    CompletableFuture<Option<Ceo>> completableFuture = new CompletableFuture<Option<Ceo>>();
+    for(int i=0; i< ceos.size(); i++){
+      if (ceos.get(i).getId() == ceo_id){
+        Ceo ceo = ceos.get(i);
+        completableFuture.complete(Option.some(ceo));
+      }
+    }
+    return completableFuture;
   }
 
   public static CompletableFuture<Option<Enterprise>> getEnterpriseByCeoId(String ceo_id) {
